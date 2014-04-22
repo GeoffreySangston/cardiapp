@@ -1,0 +1,168 @@
+body{
+	height:100%;
+	margin:0;
+	padding:0;
+	
+	font-family:"Gotham SSm A","Gotham SSm B",Arial,sans-serif;
+	
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-moz-user-select:none;
+	-ms-user-select: none;
+	-ms-touch-action:none;
+}
+
+#body-container{
+	height:auto;
+	min-height:100%;
+}
+
+#page-container{
+	position: relative;
+}
+
+#pc-page{
+	margin-top:50px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+	width:500px;
+	height:500px;
+	background: #FFFFFF;
+	border:solid 5px #BBADA0;
+}
+
+#pc-head{
+	margin-top:8px;
+}
+#pc-cover{
+	position:absolute;
+	margin-top:-8px;
+	width:inherit;
+	height:inherit;
+	background:white;
+}
+#cover-selections{
+	margin-top:140px;
+}
+.cover-selection{
+	margin-bottom:60px;
+	margin-left:auto;
+	margin-right:auto;
+
+	width:256px;
+	height:64px;
+
+	background:red;
+
+	border-radius:6px;
+
+	line-height:64px;
+	text-align:center;
+	font-size:32px;
+	color:white;
+	
+	cursor:pointer;
+}
+#cover-start{
+	
+}
+#cover-continue{
+
+}
+
+#pc-quit{
+	float:left;
+	margin-left:8px;
+
+	width:64px;
+	height:24px;
+	
+	background: blue;
+	
+	color:white;
+	text-align:center;
+	line-height:24px;
+	
+	border-radius:3px;
+	
+	cursor:pointer;
+}
+
+#pc-timer{
+	float:right;
+	margin-right:8px;
+
+	width:64px;
+	height:24px;
+	
+	background: red;
+	
+	color:white;
+	text-align:center;
+	line-height:24px;
+	
+	border-radius:3px;
+}
+
+#pc-question{
+	margin-top:96px;
+	
+	height:64px;
+	
+	line-height:64px;
+	text-align:center;
+	font-size:32px;
+}
+
+#pc-responses-container{
+		overflow:auto;
+		
+		display:table;
+		margin: 0 auto;
+		margin-top:96px;
+		
+}
+
+.pc-response{
+	display:inline-block;
+	margin-left:5px;
+	margin-right:5px;
+	
+	width:128px;
+	height:64px;
+
+	background:red;
+
+	border-radius:6px;
+
+	line-height:64px;
+	text-align:center;
+	font-size:32px;
+	color:white;
+	
+	cursor:pointer;
+}
+
+#pc-bottom-bar{
+	margin-top:96px;
+}
+
+#pc-back{
+	margin-left:auto;
+	margin-right:auto;
+	height:64px;
+	width:128px;
+	
+	background:blue;
+	
+	border-radius:6px;
+	
+	text-align:center;
+	line-height:64px;
+	font-size:32px;
+	color:white;
+	
+	cursor:pointer;
+	
+}

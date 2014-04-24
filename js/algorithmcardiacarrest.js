@@ -8,7 +8,7 @@ function AlgorithmCardiacArrest(){
 	var responseObjects;
 	////////////////// STEP 0 /////////////////////////////////////
 	step = new Step();
-	step.questionString = "Start CPR";
+	step.questionString = "Patient age";
 	responseObjects = [];
 	
 	response = new Response();

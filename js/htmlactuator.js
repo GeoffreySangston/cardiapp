@@ -34,6 +34,7 @@ HTMLActuator.prototype.actuateAlgorithm = function(record,algorithm){
 	this.coverDiv.style.display = "none";
 	//this.responseDivs = document.getElementsByClassName("pc-response");
 	
+	console.log(record.curStepNum);
 	console.log(algorithm);
 	var step = algorithm.steps[record.curStepNum];
 	this.questionDiv.innerHTML = step.questionString;
@@ -43,6 +44,20 @@ HTMLActuator.prototype.actuateAlgorithm = function(record,algorithm){
 		var responseDiv = document.createElement("div");
 		responseDiv.classList.add("pc-response");
 		responseDiv.innerHTML = responseObjects[i].string;
+		if(responseObjects[i].string.indexOf("&#8804;") > -1){
+			// this is a hack to make the >= 13 the same size as < 13
+			responseDiv.style.fontSize = "28px";
+		} else if(responseObjects[i].string.length <= 3){
+			responseDiv.style.fontSize = "32px";
+		} else if(responseObjects[i].string.length <= 6){
+			responseDiv.style.fontSize = "28px";
+		} else if(responseObjects[i].string.length <= 9){
+			responseDiv.style.fontSize = "24px";
+		} else if(responseObjects[i].string.length <= 12){
+			responseDiv.style.fontSize = "20px";
+		} else {
+			responseDiv.style.fontSize = "12px";
+		}
 		this.responsesContainerDiv.appendChild(responseDiv);
 	}
 	

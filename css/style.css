@@ -64,6 +64,25 @@ body{
 	
 	cursor:pointer;
 }
+.cover-selection:hover{
+	margin-bottom:60px;
+	margin-left:auto;
+	margin-right:auto;
+
+	width:256px;
+	height:64px;
+
+	background:rgb(255,124,124);
+
+	border-radius:6px;
+
+	line-height:64px;
+	text-align:center;
+	font-size:32px;
+	color:white;
+	
+	cursor:pointer;
+}
 #cover-start{
 	
 }
@@ -79,6 +98,24 @@ body{
 	height:24px;
 	
 	background: blue;
+	
+	color:white;
+	text-align:center;
+	line-height:24px;
+	
+	border-radius:3px;
+	
+	cursor:pointer;
+}
+
+#pc-quit:hover{
+	float:left;
+	margin-left:8px;
+
+	width:64px;
+	height:24px;
+	
+	background: rgb(124,124,255);
 	
 	color:white;
 	text-align:center;
@@ -125,14 +162,36 @@ body{
 }
 
 .pc-response{
+	float:left;
 	display:inline-block;
-	margin-left:5px;
-	margin-right:5px;
+	margin-left:10px;
+	margin-right:10px;
 	
 	width:128px;
 	height:64px;
 
 	background:red;
+
+	border-radius:6px;
+
+	line-height:64px;
+	text-align:center;
+	font-size:32px;
+	color:white;
+	
+	cursor:pointer;
+}
+
+.pc-response:hover{
+	float:left;
+	display:inline-block;
+	margin-left:10px;
+	margin-right:10px;
+	
+	width:128px;
+	height:64px;
+
+	background:rgb(255, 124, 124);
 
 	border-radius:6px;
 
@@ -155,6 +214,25 @@ body{
 	width:128px;
 	
 	background:blue;
+	
+	border-radius:6px;
+	
+	text-align:center;
+	line-height:64px;
+	font-size:32px;
+	color:white;
+	
+	cursor:pointer;
+	
+}
+
+#pc-back:hover{
+	margin-left:auto;
+	margin-right:auto;
+	height:64px;
+	width:128px;
+	
+	background:rgb(124, 124, 255);
 	
 	border-radius:6px;
 	

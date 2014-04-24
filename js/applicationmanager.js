@@ -1,3 +1,11 @@
+/*
+Have to change current back system from previous step to mainting an array of
+steps and when they press back it'll just go to the previous step in the array
+
+(because some algorithms are referred to by multiple sources)
+
+*/
+
 function ApplicationManager(InputManager,HTMLActuator,LocalStorageManager){
 	this.inputManager = new InputManager;
 	this.htmlActuator = new HTMLActuator;
@@ -6,9 +14,11 @@ function ApplicationManager(InputManager,HTMLActuator,LocalStorageManager){
 	this.inputManager.on("mouseup",this.mouseUp.bind(this));
 	
 	this.algorithms = [];
+	this.algorithms[Algorithm.GENERAL] = new AlgorithmGeneral();
 	this.algorithms[Algorithm.CARDIACARREST] = new AlgorithmCardiacArrest();
 	this.algorithms[Algorithm.ACS] = new AlgorithmACS();
-	this.algorithms[Algorithm.PEAASYSTOLE] = new AlgorithmPEAAsystole();
+	this.algorithms[Algorithm.ADULTVENTRICULARTACHYCARDIA] = new AlgorithmAdultVentricularTachycardia();
+	this.algorithms[Algorithm.PEDIATRICTACHYCARDIA] = new AlgorithmPediatricTachycardia();
 	
 	this.curRecord;
 	this.init();
@@ -24,7 +34,7 @@ ApplicationManager.prototype.init = function(){
 			this.startTimer();
 		}
 	} else {
-		this.curRecord = new Record(Algorithm.CARDIACARREST,0);
+		this.curRecord = new Record(Algorithm.GENERAL,0);
 	}
 }
 
@@ -78,24 +88,21 @@ ApplicationManager.prototype.mouseUp = function(e){
 		
 		break;
 	case HTMLActuator.BACK:
-		prevStepNum = this.algorithms[this.curRecord.curAlgorithmNum].steps[this.curRecord.curStepNum].prevStepNum;
+		var prevStepNum = this.algorithms[this.curRecord.curAlgorithmNum].steps[this.curRecord.curStepNum].prevStepNum;
+		var prevAlgNum = this.algorithms[this.curRecord.curAlgorithmNum].steps[this.curRecord.curStepNum].prevAlgNum;
 		if(prevStepNum >= 0){
 			this.curRecord.curStepNum = prevStepNum;
+			this.curRecord.curAlgorithmNum = prevAlgNum;
 			this.actuate();
 		}
 		break;
 	case HTMLActuator.RESPONSEONE:
 		var algorithm = this.algorithms[this.curRecord.curAlgorithmNum];
-		console.log(algorithm);
 		var step = algorithm.steps[this.curRecord.curStepNum];
-		console.log(step);
 		var response = step.responseObjects[0];
-		console.log(response);
 		this.curRecord.curStepNum = response.stepNum;
 		this.curRecord.curAlgorithmNum = response.algorithmNum;
-		
-		console.log(this.curRecord);
-		
+				
 		this.actuate();
 		break;
 	case HTMLActuator.RESPONSETWO:

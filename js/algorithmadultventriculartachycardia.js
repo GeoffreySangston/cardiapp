@@ -25,7 +25,6 @@ function AlgorithmAdultVentricularTachycardia(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = -1;
 }
 
 AlgorithmAdultVentricularTachycardia.prototype = Object.create(Algorithm.prototype);

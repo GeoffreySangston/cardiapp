@@ -23,8 +23,6 @@ function AlgorithmGeneral(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = -1;
-	step.prevAlgNum = Algorithm.GENERAL;
 	
 	this.steps.push(step);
 	////////////////// STEP 1 /////////////////////////////////////
@@ -40,8 +38,7 @@ function AlgorithmGeneral(){
 	
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 0;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 2 /////////////////////////////////////
@@ -62,8 +59,7 @@ function AlgorithmGeneral(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 1;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 3 /////////////////////////////////////
@@ -85,8 +81,7 @@ function AlgorithmGeneral(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 2;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 5 ///////////////////////////////////// Has no pulse
@@ -102,8 +97,7 @@ function AlgorithmGeneral(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 2;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 6 /////////////////////////////////////
@@ -131,8 +125,7 @@ function AlgorithmGeneral(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 4;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 7 /////////////////////////////////////
@@ -153,8 +146,7 @@ function AlgorithmGeneral(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 5;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 8 /////////////////////////////////////
@@ -176,8 +168,7 @@ function AlgorithmGeneral(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 6;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 9 /////////////////////////////////////
@@ -193,8 +184,7 @@ function AlgorithmGeneral(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 7;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 10 //////////////////////////////////// Yes to hypotension
@@ -204,8 +194,7 @@ function AlgorithmGeneral(){
 
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 8;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 11 //////////////////////////////////// No to hypotension
@@ -215,8 +204,7 @@ function AlgorithmGeneral(){
 
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 8;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 	////////////////// STEP 12 ////////////////////////////////////
@@ -237,8 +225,7 @@ function AlgorithmGeneral(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 9;
-	step.prevAlgNum = Algorithm.GENERAL;
+
 	this.steps.push(step);
 	
 }

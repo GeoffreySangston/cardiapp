@@ -18,7 +18,7 @@ function AlgorithmCardiacArrest(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = -1;
+
 	
 	this.steps.push(step);
 	curStepNum = 1;
@@ -34,7 +34,7 @@ function AlgorithmCardiacArrest(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = curStepNum - 1;
+	
 	
 	this.steps.push(step);
 	curStepNum = 2;
@@ -50,7 +50,6 @@ function AlgorithmCardiacArrest(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = curStepNum - 1;
 	
 	this.steps.push(step);
 	curStepNum = 3;
@@ -72,7 +71,6 @@ function AlgorithmCardiacArrest(){
 	responseObjects.push(response);
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = curStepNum - 1;
 	
 	this.steps.push(step);
 	curStepNum  = 5;

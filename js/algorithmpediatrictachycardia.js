@@ -19,8 +19,6 @@ function AlgorithmPediatricTachycardia(){
 	
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 6;
-	step.prevAlgNum = Algorithm.GENERAL;
 	
 	this.steps.push(step);
 	
@@ -37,8 +35,7 @@ function AlgorithmPediatricTachycardia(){
 	
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 0;
-	step.prevAlgNum = Algorithm.PEDIATRICTACHYCARDIA;
+
 	
 	this.steps.push(step);
 	
@@ -62,8 +59,6 @@ function AlgorithmPediatricTachycardia(){
 	
 	
 	step.responseObjects = responseObjects;
-	step.prevStepNum = 1;
-	step.prevAlgNum = Algorithm.PEDIATRICTACHYCARDIA;
 	
 	this.steps.push(step);
 }

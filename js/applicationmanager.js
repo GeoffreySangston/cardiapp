@@ -1,5 +1,5 @@
 /*
-Have to change current back system from previous step to mainting an array of
+Have to change current back system from previous step to maintaining an array of
 steps and when they press back it'll just go to the previous step in the array
 
 (because some algorithms are referred to by multiple sources)
@@ -20,6 +20,9 @@ function ApplicationManager(InputManager,HTMLActuator,LocalStorageManager){
 	this.algorithms[Algorithm.ADULTVENTRICULARTACHYCARDIA] = new AlgorithmAdultVentricularTachycardia();
 	this.algorithms[Algorithm.PEDIATRICTACHYCARDIA] = new AlgorithmPediatricTachycardia();
 	
+	this.curRecordNumStack; // when going back do pop 
+	this.historyRecordNumStack; // when going back push the node pointed to by back
+	
 	this.curRecord;
 	this.init();
 	this.actuate();
@@ -28,14 +31,26 @@ function ApplicationManager(InputManager,HTMLActuator,LocalStorageManager){
 
 ApplicationManager.prototype.init = function(){
 	var storedRecord = this.localStorageManager.getRecord();
+	var storedCurRecordStackNum = this.localStorageManager.getCurRecordStackNum();
+	var storedHistoryRecordStackNum = this.localStorageManager.getHistoryRecordStackNum();
+	
 	if(storedRecord){
 		this.curRecord = storedRecord;
+		this.curRecordNumStack = storedCurRecordStackNum;
+		this.historyRecordNumStack = storedHistoryRecordStackNum;
 		if(storedRecord.inAlgorithms){
 			this.startTimer();
 		}
 	} else {
 		this.curRecord = new Record(Algorithm.GENERAL,0);
+		this.curRecordNumStack = [];
+		this.historyRecordNumStack = [];
+		
+		this.curRecordNumStack.push({stepNum : this.curRecord.curStepNum, algorithmNum : this.curRecord.curAlgorithmNum});
+		this.historyRecordNumStack.push({stepNum : this.curRecord.curStepNum, algorithmNum : this.curRecord.curAlgorithmNum});
 	}
+	
+
 }
 
 ApplicationManager.prototype.actuate = function(){
@@ -51,6 +66,8 @@ ApplicationManager.prototype.actuate = function(){
 	}
 	
 	this.localStorageManager.setRecord(this.curRecord);
+	this.localStorageManager.setCurRecordStackNum(this.curRecordNumStack);
+	this.localStorageManager.setHistoryRecordStackNum(this.historyRecordNumStack);
 };
 
 ApplicationManager.prototype.startTimer = function(){
@@ -66,6 +83,7 @@ ApplicationManager.prototype.updateTimer = function(){
 };
 
 ApplicationManager.prototype.mouseUp = function(e){
+	console.log(this.curRecordNumStack);
 	switch(this.htmlActuator.elementFromPoint(e.x,e.y)){
 	case HTMLActuator.QUIT:
 		this.curRecord.inAlgorithms = false;
@@ -88,13 +106,16 @@ ApplicationManager.prototype.mouseUp = function(e){
 		
 		break;
 	case HTMLActuator.BACK:
-		var prevStepNum = this.algorithms[this.curRecord.curAlgorithmNum].steps[this.curRecord.curStepNum].prevStepNum;
-		var prevAlgNum = this.algorithms[this.curRecord.curAlgorithmNum].steps[this.curRecord.curStepNum].prevAlgNum;
-		if(prevStepNum >= 0){
-			this.curRecord.curStepNum = prevStepNum;
-			this.curRecord.curAlgorithmNum = prevAlgNum;
+		if(this.curRecordNumStack.length > 1){
+			this.curRecordNumStack.pop();
+			
+			this.curRecord.curStepNum = this.curRecordNumStack[this.curRecordNumStack.length-1].stepNum;
+			this.curRecord.curAlgorithmNum = this.curRecordNumStack[this.curRecordNumStack.length-1].algorithmNum;
+			this.historyRecordNumStack.push({stepNum : this.curRecord.curStepNum, algorithmNum : this.curRecord.curAlgorithmNum});
+			
 			this.actuate();
 		}
+
 		break;
 	case HTMLActuator.RESPONSEONE:
 		var algorithm = this.algorithms[this.curRecord.curAlgorithmNum];
@@ -102,8 +123,11 @@ ApplicationManager.prototype.mouseUp = function(e){
 		var response = step.responseObjects[0];
 		this.curRecord.curStepNum = response.stepNum;
 		this.curRecord.curAlgorithmNum = response.algorithmNum;
-				
+		this.curRecordNumStack.push({stepNum : this.curRecord.curStepNum, algorithmNum : this.curRecord.curAlgorithmNum});
+		this.historyRecordNumStack.push({stepNum : this.curRecord.curStepNum, algorithmNum : this.curRecord.curAlgorithmNum});	
+		
 		this.actuate();
+		
 		break;
 	case HTMLActuator.RESPONSETWO:
 		var algorithm = this.algorithms[this.curRecord.curAlgorithmNum];
@@ -112,6 +136,8 @@ ApplicationManager.prototype.mouseUp = function(e){
 		
 		this.curRecord.curStepNum = response.stepNum;
 		this.curRecord.curAlgorithmNum = response.algorithmNum;
+		this.curRecordNumStack.push({stepNum : this.curRecord.curStepNum, algorithmNum : this.curRecord.curAlgorithmNum});
+		this.historyRecordNumStack.push({stepNum : this.curRecord.curStepNum, algorithmNum : this.curRecord.curAlgorithmNum});
 		
 		this.actuate();
 		break;
@@ -122,6 +148,8 @@ ApplicationManager.prototype.mouseUp = function(e){
 		
 		this.curRecord.curStepNum = response.stepNum;
 		this.curRecord.curAlgorithmNum = response.algorithmNum;
+		this.curRecordNumStack.push({stepNum : this.curRecord.curStepNum, algorithmNum : this.curRecord.curAlgorithmNum});
+		this.historyRecordNumStack.push({stepNum : this.curRecord.curStepNum, algorithmNum : this.curRecord.curAlgorithmNum});
 		
 		this.actuate();
 		break;

@@ -157,7 +157,7 @@ body{
 		
 		display:table;
 		margin: 0 auto;
-		margin-top:96px;
+		margin-top:128px;
 		
 }
 
@@ -204,7 +204,7 @@ body{
 }
 
 #pc-bottom-bar{
-	margin-top:96px;
+	margin-top:64px;
 }
 
 #pc-back{

@@ -108,14 +108,20 @@ function AlgorithmGeneral(){
 	
 	response = new Response();
 	response.string = "> 100"; // SWITCH ALGORITHMS
-	response.algorithmNum = Algorithm.PEDIATRICTACHYCARDIA; // for now just this, gotta add support for choosing between adult and pediatric in future
+	
+	response.algorithmNum = Algorithm.VENTRICULARTACHYCARDIAADULT;
 	response.stepNum = 0;
+	response.algorithmNumB = Algorithm.TACHYCARDIAPEDIATRIC; // for now just this, gotta add support for choosing between adult and pediatric in future
+	response.stepNumB = 0;
+	
 	responseObjects.push(response);
 	
 	response = new Response();
 	response.string = "< 60"; // SWITCH ALGORITHMS
 	response.algorithmNum = Algorithm.BRADYCARDIA;
 	response.stepNum = 0;
+	response.algorithmNumB = Algorithm.BRADYCARDIAPEDIATRIC;
+	response.stepNumB = 0;
 	responseObjects.push(response);
 	
 	response = new Response();
@@ -135,8 +141,10 @@ function AlgorithmGeneral(){
 	
 	response = new Response();
 	response.string = "Yes";
-	response.algorithmNum = Algorithm.VFIB;
+	response.algorithmNum = Algorithm.VFPULSELESSVT;
 	response.stepNum = 0;
+	/*response.algorithmNumB = Algorithm.VFPULSELESSVTPEDIATRIC;
+	response.stepNumB = 0;*/
 	responseObjects.push(response);
 	
 	response = new Response();

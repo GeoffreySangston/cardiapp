@@ -34,8 +34,6 @@ HTMLActuator.prototype.actuateAlgorithm = function(record,algorithm){
 	this.coverDiv.style.display = "none";
 	//this.responseDivs = document.getElementsByClassName("pc-response");
 	
-	console.log(record.curStepNum);
-	console.log(algorithm);
 	var step = algorithm.steps[record.curStepNum];
 	this.questionDiv.innerHTML = step.questionString;
 	var responseObjects = step.responseObjects;

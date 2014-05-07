@@ -22,6 +22,7 @@ function LocalStorageManager() {
 	this.recordKey = "record";
 	this.curRecordStackNumKey = "currecordstack";
 	this.historyRecordStackNumKey = "historyrecordstack";
+	this.pediatricKey = "pediatric";
 
 	var supported = this.localStorageSupported();
 	this.storage = supported ? window.localStorage : window.fakeStorage;
@@ -82,6 +83,18 @@ LocalStorageManager.prototype.clearHistoryRecordStackNum = function(){
 	this.storage.removeItem(this.historyRecordStackNumKey);
 };
 
+
+
+LocalStorageManager.prototype.getPediatric = function(){
+	var myJSON = this.storage.getItem(this.pediatricKey);
+	return myJSON ? JSON.parse(myJSON) : null;
+};
+LocalStorageManager.prototype.setPediatric = function(pediatric){
+	this.storage.setItem(this.pediatricKey, JSON.stringify(pediatric));
+};
+LocalStorageManager.prototype.clearPediatric = function(){
+	this.storage.removeItem(this.pediatricKey);
+};
 
 
 

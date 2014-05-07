@@ -7,13 +7,18 @@ Algorithms consist of steps
 
 }
 Algorithm.GENERAL = 0;
-Algorithm.CARDIACARREST = 1;
-Algorithm.ACS = 2;
-Algorithm.PEA = 3;
+Algorithm.VFPULSELESSVT = 1; //vfib pulseless vtach
+Algorithm.VFPULSELESSVTPEDIATRIC = 2; //vfib pulseless vtach pediatric
+Algorithm.PEA = 3; // pulseless electrical activity
 Algorithm.ASYSTOLE = 4;
-Algorithm.VFPULSELESSVT = 5;
+Algorithm.ASYSTOLEPEDIATRIC = 5;
 Algorithm.BRADYCARDIA = 6;
-Algorithm.ADULTVENTRICULARTACHYCARDIA = 7;
-Algorithm.PEDIATRICTACHYCARDIA = 8;
-Algorithm.SUSPECTEDSTROKE = 9;
-Algorithm.VFIB = 10;
+Algorithm.BRADYCARDIAPEDIATRIC = 7;
+Algorithm.VENTRICULARTACHYCARDIAADULT = 8;
+Algorithm.TACHYCARDIAPEDIATRIC = 9;
+Algorithm.PVCTREATMENT = 10;
+Algorithm.SUPRAVENTTACHYCARDIAADULT = 11;
+Algorithm.PULMONARYEDEMA = 12;
+Algorithm.BLOODPRESSUREMANAGEMENT = 13;
+Algorithm.BICARBONATETHERAPY = 14;
+Algorithm.RCAFIBAFLUTTER = 15; // rate control in a-fib and a-flutter
